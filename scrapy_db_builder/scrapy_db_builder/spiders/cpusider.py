@@ -20,7 +20,6 @@ class CPUSpider(CrawlSpider):
 
     def parse_cpu_page(self, response):
         item = CPUscrapy()
-        print response.xpath('.//*[@id="ProcessorNumber"]/td[2]/text()')
         item['processor'] = response.xpath('.//*[@id="ProcessorNumber"]/td[2]/text()').extract()
         item['cache'] = response.xpath('.//*[@id="Cache"]/td[2]/text()').extract()
         item['lithography'] = response.xpath('.//*[@id="Lithography"]/td[2]/text()').extract()

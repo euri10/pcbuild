@@ -1,13 +1,13 @@
 __author__ = 'euri10'
 
-from sqlalchemy import Column, Integer, String, ForeignKey, Float, Boolean, create_engine
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, Boolean
+
+from app import db
 
 
-DeclarativeBase = declarative_base()
 
 
-class PC(DeclarativeBase):
+class PC(db.Model):
     __tablename__ = 'PC'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
@@ -21,7 +21,7 @@ class PC(DeclarativeBase):
     psu_id = Column(Integer, ForeignKey('PSU.id'))
 
 
-class CPU(DeclarativeBase):
+class CPU(db.Model):
     __tablename__ = 'CPU'
     id = Column(Integer, primary_key=True)
     cpubrand_id = Column(Integer, ForeignKey('CPUBrand.id'))
@@ -48,55 +48,55 @@ class CPU(DeclarativeBase):
     socket = Column(Integer, ForeignKey('Socket.id'))
 
 
-class Socket(DeclarativeBase):
+class Socket(db.Model):
     __tablename__ = 'Socket'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
 
 
-class CPUCooler(DeclarativeBase):
+class CPUCooler(db.Model):
     __tablename__ = 'CPUCooler'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
 
 
-class MB(DeclarativeBase):
+class MB(db.Model):
     __tablename__ = 'MB'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
 
 
-class RAM(DeclarativeBase):
+class RAM(db.Model):
     __tablename__ = 'RAM'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
 
 
-class GPU(DeclarativeBase):
+class GPU(db.Model):
     __tablename__ = 'GPU'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
 
 
-class Storage(DeclarativeBase):
+class Storage(db.Model):
     __tablename__ = 'Storage'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
 
 
-class Case(DeclarativeBase):
+class Case(db.Model):
     __tablename__ = 'Case'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
 
 
-class PSU(DeclarativeBase):
+class PSU(db.Model):
     __tablename__ = 'PSU'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
 
 
-class CPUBrand(DeclarativeBase):
+class CPUBrand(db.Model):
     __tablename__ = 'CPUBrand'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
