@@ -25,7 +25,7 @@ NEWSPIDER_MODULE = 'scrapy_db_builder.spiders'
 DOWNLOADER_MIDDLEWARES = {'scrapy_db_builder.middlewares.ProxyMiddleware': 1}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapy_db_builder (+http://www.yourdomain.com)'
-IMAGES_STORE = imagepath
-# 90 days of delay for image expiration
-IMAGES_EXPIRES = 90
+
+
+
 
