@@ -31,16 +31,16 @@ class CPUSpider(CrawlSpider):
         item['tdp'] = response.xpath('.//*[@id="MaxTDP"]/td[2]/text()').extract()
         item['mem_types'] = response.xpath('.//*[@id="MemoryTypes"]/td[2]/text()').extract()
         item['max_mem_channels'] = response.xpath('.//*[@id="NumMemoryChannels"]/td[2]/text()').extract()
-        # item['max_mem_bandwidth'] = response.xpath().extract()
+        item['max_mem_bandwidth'] = response.xpath('.//*[@id="MaxMemoryBandwidth"]/td[2]/text()').extract()
         item['ECC'] = response.xpath('.//*[@id="ECCMemory"]/td[2]/span/text()').extract()
         item['processor_graphics'] = response.xpath('.//*[@id="GraphicsModel"]/td[2]/text()').extract()
-        # item['graph_base_freq'] = response.xpath().extract()
-        # item['graph_max_dyn_freq'] = response.xpath().extract()
+        item['graph_base_freq'] = response.xpath('.//*[@id="GraphicsFreq"]/td[2]/text()').extract()
+        item['graph_max_dyn_freq'] = response.xpath('.//*[@id="GraphicsMaxFreq"]/td[2]/text()').extract()
         # item['graph_max_mem'] = response.xpath().extract()
-        # item['pcie_revision'] = response.xpath().extract()
-        # item['max_pcie_lanes'] = response.xpath().extract()
-        # item['pcie_config'] = response.xpath().extract()
-        # item['socket'] = response.xpath().extract()
+        item['pcie_revision'] = response.xpath('.//*[@id="PCIExpressRevision"]/td[2]/text()').extract()
+        item['max_pcie_lanes'] = response.xpath('.//*[@id="NumPCIExpressPorts"]/td[2]/text()').extract()
+        item['pcie_config'] = response.xpath('.//*[@id="PCIExpressConfigs"]/td[2]/text()').extract()
+        item['socket'] = response.xpath('.//*[@id="SocketsSupported"]/td[2]/text()').extract()
         yield item
 
 
