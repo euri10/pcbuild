@@ -1,11 +1,7 @@
 __author__ = 'euri10'
 
 from sqlalchemy import Column, Integer, String, ForeignKey, Float, Boolean
-
 from app import db
-
-
-
 
 class PC(db.Model):
     __tablename__ = 'PC'
@@ -19,7 +15,13 @@ class PC(db.Model):
     storage_id = Column(Integer, ForeignKey('Storage.id'))
     case_id = Column(Integer, ForeignKey('Case.id'))
     psu_id = Column(Integer, ForeignKey('PSU.id'))
+    drive_d = Column(Integer, ForeignKey('Drive.id'))
 
+
+class Drive(db.Model):
+    __tablename__ = 'Drive'
+    id = Column(Integer, primary_key=True)
+    name = Column(String, unique=True)
 
 class CPU(db.Model):
     __tablename__ = 'CPU'
