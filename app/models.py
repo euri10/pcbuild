@@ -3,6 +3,7 @@ __author__ = 'euri10'
 from sqlalchemy import Column, Integer, String, ForeignKey, Float
 from app import db
 
+
 class PC(db.Model):
     __tablename__ = 'PC'
     id = Column(Integer, primary_key=True)
@@ -22,6 +23,7 @@ class Drive(db.Model):
     __tablename__ = 'Drive'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
+
 
 class CPU(db.Model):
     __tablename__ = 'CPU'

@@ -37,14 +37,11 @@ class cpuIntelPipeline(object):
             if item[label] is not None:
                 item[label] = unicode(item[label])
 
-
         if re.match(r"(.*)-(.*)", item['processor']):
             m = re.match(r"(.*)-(.*)", item['processor'])
             item['processor_name'] = m.group(1)
             item['processor_type'] = m.group(2)
             item['processor'] = item['processor']
-
-
 
         # process int or float and unit
         for label in ['cache', 'lithography', 'base_freq', 'max_freq', 'tdp', 'max_mem_bandwidth', 'graph_base_freq',

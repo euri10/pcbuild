@@ -23,7 +23,7 @@ SPIDER_MODULES = ['scrapy_db_builder.spiders']
 NEWSPIDER_MODULE = 'scrapy_db_builder.spiders'
 DOWNLOADER_MIDDLEWARES = {'scrapy_db_builder.middlewares.ProxyMiddleware': 1}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'scrapy_db_builder (+http://www.yourdomain.com)'
+# USER_AGENT = 'scrapy_db_builder (+http://www.yourdomain.com)'
 
 ITEM_PIPELINES = {
     'scrapy_db_builder.pipelines.cpuIntelPipeline': 300,
