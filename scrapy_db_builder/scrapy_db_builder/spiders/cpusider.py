@@ -38,6 +38,7 @@ class CPUSpider(CrawlSpider):
         item['max_pcie_lanes'] = response.xpath('.//*[@id="NumPCIExpressPorts"]/td[2]/text()').extract()
         item['pcie_config'] = response.xpath('.//*[@id="PCIExpressConfigs"]/td[2]/text()').extract()
         item['socket'] = response.xpath('.//*[@id="SocketsSupported"]/td[2]/text()').extract()
+        item['link'] = response.url
         yield item
 
 

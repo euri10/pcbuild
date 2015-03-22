@@ -29,7 +29,7 @@ class CPU(db.Model):
     __tablename__ = 'CPU'
     id = Column(Integer, primary_key=True)
     cpubrand_id = Column(Integer, ForeignKey('CPUBrand.id'))
-    processor = Column(String)
+    processor = Column(String, unique=True)
     processor_name = Column(String)
     processor_type = Column(String)
     cache = Column(Integer)
@@ -58,6 +58,7 @@ class CPU(db.Model):
     max_pcie_lanes = Column(Integer)
     pcie_config = Column(String)
     socket = Column(String, ForeignKey('Socket.name'))
+    link = Column(String)
 
 
 class Socket(db.Model):

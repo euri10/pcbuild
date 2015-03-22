@@ -24,10 +24,11 @@ class cpuIntelPipeline(object):
         # this is intel cpu, brand id is 1
 
         for k in item.keys():
-            if len(item[k]):
-                item[k] = item[k][0]
-            else:
-                item[k] = None
+            if k != 'link':
+                if len(item[k]):
+                    item[k] = item[k][0]
+                else:
+                    item[k] = None
 
         item['cpubrand_id'] = 1
 
@@ -60,13 +61,8 @@ class cpuIntelPipeline(object):
             if item[label] is not None:
                 item[label] = int(item[label])
 
-        # if I remove this, previous loop exit after 1st element in the list that is 'cores'
-        for label in ['test']:
-            print label
+        return item
 
-            return item
-        else:
-            raise DropItem("Missing price in %s" % item)
 
 
 class intoSQLPipeline(object):

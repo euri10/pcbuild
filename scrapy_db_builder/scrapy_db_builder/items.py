@@ -32,3 +32,4 @@ class cpuIntelScrapy(Item):
     max_pcie_lanes = Field()
     pcie_config = Field()
     socket = Field()
+    link = Field()
