@@ -1,6 +1,7 @@
 scrapy_db_builder/config.ini
-
+app.db
 .idea/
+
 # Created by .gitignore support plugin (hsz.mobi)
 
 ### Python template

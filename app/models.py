@@ -1,6 +1,6 @@
 __author__ = 'euri10'
 
-from sqlalchemy import Column, Integer, String, ForeignKey, Float, Boolean
+from sqlalchemy import Column, Integer, String, ForeignKey, Float
 from app import db
 
 class PC(db.Model):
@@ -27,27 +27,35 @@ class CPU(db.Model):
     __tablename__ = 'CPU'
     id = Column(Integer, primary_key=True)
     cpubrand_id = Column(Integer, ForeignKey('CPUBrand.id'))
+    processor = Column(String)
     processor_name = Column(String)
     processor_type = Column(String)
     cache = Column(Integer)
+    cache_u = Column(String)
     lithography = Column(Integer)
+    lithography_u = Column(String)
     cores = Column(Integer)
     thread = Column(Integer)
     base_freq = Column(Float)
+    base_freq_u = Column(String)
     max_freq = Column(Float)
+    max_freq_u = Column(String)
     tdp = Column(Integer)
+    tdp_u = Column(String)
     mem_types = Column(String)
     max_mem_channels = Column(Integer)
     max_mem_bandwidth = Column(Float)
-    ECC = Column(Boolean)
+    max_mem_bandwidth_u = Column(String)
+    ECC = Column(String)
     processor_graphics = Column(String)
     graph_base_freq = Column(Integer)
+    graph_base_freq_u = Column(String)
     graph_max_dyn_freq = Column(Float)
-    graph_max_mem = Column(Float)
-    pcie_revision = Column(Float)
+    graph_max_dyn_freq_u = Column(String)
+    pcie_revision = Column(String)
     max_pcie_lanes = Column(Integer)
     pcie_config = Column(String)
-    socket = Column(Integer, ForeignKey('Socket.id'))
+    socket = Column(String, ForeignKey('Socket.name'))
 
 
 class Socket(db.Model):

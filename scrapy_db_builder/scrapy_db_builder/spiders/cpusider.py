@@ -2,7 +2,7 @@ __author__ = 'euri10'
 
 from scrapy.contrib.spiders import Rule, CrawlSpider
 from scrapy.contrib.linkextractors.lxmlhtml import LxmlLinkExtractor
-from scrapy_db_builder.items import CPUscrapy
+from scrapy_db_builder.items import cpuIntelScrapy
 from scrapy import Request
 
 class CPUSpider(CrawlSpider):
@@ -19,7 +19,7 @@ class CPUSpider(CrawlSpider):
         )
 
     def parse_cpu_page(self, response):
-        item = CPUscrapy()
+        item = cpuIntelScrapy()
         item['processor'] = response.xpath('.//*[@id="ProcessorNumber"]/td[2]/text()').extract()
         item['cache'] = response.xpath('.//*[@id="Cache"]/td[2]/text()').extract()
         item['lithography'] = response.xpath('.//*[@id="Lithography"]/td[2]/text()').extract()
@@ -35,7 +35,6 @@ class CPUSpider(CrawlSpider):
         item['processor_graphics'] = response.xpath('.//*[@id="GraphicsModel"]/td[2]/text()').extract()
         item['graph_base_freq'] = response.xpath('.//*[@id="GraphicsFreq"]/td[2]/text()').extract()
         item['graph_max_dyn_freq'] = response.xpath('.//*[@id="GraphicsMaxFreq"]/td[2]/text()').extract()
-        # item['graph_max_mem'] = response.xpath().extract()
         item['pcie_revision'] = response.xpath('.//*[@id="PCIExpressRevision"]/td[2]/text()').extract()
         item['max_pcie_lanes'] = response.xpath('.//*[@id="NumPCIExpressPorts"]/td[2]/text()').extract()
         item['pcie_config'] = response.xpath('.//*[@id="PCIExpressConfigs"]/td[2]/text()').extract()
