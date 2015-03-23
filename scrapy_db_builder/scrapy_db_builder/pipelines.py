@@ -36,10 +36,10 @@ class cpuIntelPipeline(object):
             if item[label] is not None:
                 item[label] = unicode(item[label])
 
-        if re.match(r"(\w+)(-\w+)?", item['processor']):
-            m = re.match(r"(.*)(-(.*))?", item['processor'])
+        if re.match(r"(\w+)(-(\w+))?", item['processor']):
+            m = re.match(r"(\w+)(-(\w+))?", item['processor'])
             item['processor_name'] = m.group(1)
-            item['processor_type'] = m.group(2)
+            item['processor_type'] = m.group(3)
             item['processor'] = item['processor']
 
         # process int or float and unit
