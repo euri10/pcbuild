@@ -7,7 +7,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from scrapy.exceptions import DropItem
 import re
 from app import models
 from config import SQLALCHEMY_DATABASE_URI
@@ -15,7 +14,8 @@ from config import SQLALCHEMY_DATABASE_URI
 
 class cpuIntelPipeline(object):
 
-    """ take item created from scrapy parser and put them in the right shape so that it can be inserted
+    """ take item created from scrapy parser and put them in the right shape so
+    that it can be inserted
     in the database easily
     """
 

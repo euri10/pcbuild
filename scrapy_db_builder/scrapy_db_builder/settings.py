@@ -7,15 +7,6 @@
 #
 # http://doc.scrapy.org/en/latest/topics/settings.html
 #
-from ConfigParser import SafeConfigParser, NoSectionError
-
-
-parser = SafeConfigParser()
-parser.read('config.ini')
-try:
-    imagepath = parser.get('image', 'imagepath')
-except NoSectionError, e:
-    print("Check your config file")
 
 BOT_NAME = 'scrapy_db_builder'
 
