@@ -33,12 +33,11 @@ class cpuIntelPipeline(object):
 
         # process string only
         for label in ['ECC', 'mem_types', 'processor_graphics', 'pcie_revision', 'pcie_config', 'socket']:
-            print label
             if item[label] is not None:
                 item[label] = unicode(item[label])
 
-        if re.match(r"(.*)-(.*)", item['processor']):
-            m = re.match(r"(.*)-(.*)", item['processor'])
+        if re.match(r"(\w+)(-\w+)?", item['processor']):
+            m = re.match(r"(.*)(-(.*))?", item['processor'])
             item['processor_name'] = m.group(1)
             item['processor_type'] = m.group(2)
             item['processor'] = item['processor']
@@ -46,7 +45,6 @@ class cpuIntelPipeline(object):
         # process int or float and unit
         for label in ['cache', 'lithography', 'base_freq', 'max_freq', 'tdp', 'max_mem_bandwidth', 'graph_base_freq',
                       'graph_max_dyn_freq']:
-            print label
             if item[label] is not None:
                 if re.match(r"(\d+(.\d+)?) (.*)", item[label]):
                     m = re.match(r"(\d+(.\d+)?) (.*)", item[label])
@@ -56,7 +54,6 @@ class cpuIntelPipeline(object):
 
         # process int only
         for label in ['cores', 'thread', 'max_mem_channels', 'max_pcie_lanes']:
-            print label
             if item[label] is not None:
                 item[label] = int(item[label])
 
