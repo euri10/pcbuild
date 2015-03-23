@@ -5,6 +5,9 @@ from app import db
 
 
 class PC(db.Model):
+    """
+    PC database model
+    """
     __tablename__ = 'PC'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)

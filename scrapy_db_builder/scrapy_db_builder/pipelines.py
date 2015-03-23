@@ -13,8 +13,8 @@ from config import SQLALCHEMY_DATABASE_URI
 
 
 class cpuIntelPipeline(object):
-
-    """ take item created from scrapy parser and put them in the right shape so
+    """
+    take item created from scrapy parser and put them in the right shape so
     that it can be inserted
     in the database easily
     """
@@ -22,7 +22,6 @@ class cpuIntelPipeline(object):
     def process_item(self, item, spider):
 
         # this is intel cpu, brand id is 1
-
         for k in item.keys():
             if k != 'link':
                 if len(item[k]):
@@ -66,8 +65,8 @@ class cpuIntelPipeline(object):
 
 
 class intoSQLPipeline(object):
-    """ this serves as a pipeline into the database
-
+    """
+    this serves as a pipeline into the database
     """
 
     def __init__(self):
@@ -78,11 +77,9 @@ class intoSQLPipeline(object):
         self.Session = sessionmaker(bind=engine)
 
     def process_item(self, item, spider):
-
-        """Save cpu in the database.
-
+        """
+        Save cpu in the database.
         This method is called for every item pipeline component.
-
         """
         session = self.Session()
         cpu = models.CPU(**item)

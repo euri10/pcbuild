@@ -1,3 +1,5 @@
+import urlparse
+
 __author__ = 'euri10'
 
 from scrapy.contrib.spiders import Rule, CrawlSpider
@@ -9,13 +11,19 @@ from scrapy import Request
 class CPUSpider(CrawlSpider):
     name = 'cpuspider'
     allowed_domains = ['ark.intel.com']
-    start_urls = ['http://ark.intel.com/search/advanced?s=t']
+    start_urls = ['http://ark.intel.com/#@Processors']
 
     rules = (
         Rule(LxmlLinkExtractor(allow_domains=allowed_domains,
-                               restrict_xpaths='.//*[@id="grid-03-shb"]/div[1]/div[5]/div/div[4]/table/tbody/tr[*]/td[2]/a',
-                               process_value=None), callback='parse_cpu_page'),
+                               restrict_xpaths='.//*[@id="Processors-DesktopProcessors-scrollpane"]/table/tbody/tr[*]/td[*]/a',
+                               process_value=None), callback='parse_desktop_submenu'),
     )
+
+    def parse_desktop_submenu(self, response):
+        urllist = response.xpath('.//*[@id="tabs-Desktop"]/table/tbody/tr[*]/td[2]/a/@href').extract()
+        for url in urllist:
+            yield Request(urlparse.urljoin('http://ark.intel.com', url), callback=self.parse_cpu_page)
+
 
     def parse_cpu_page(self, response):
         item = cpuIntelScrapy()
