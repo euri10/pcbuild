@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2416630202">
-    <data-source source="LOCAL" name="app" uuid="46d9b72e-9843-418a-988e-f2939dc38c1c">
+  <component name="DataSourceManagerImpl" format="xml" hash="2970616505">
+    <data-source source="LOCAL" name="app" uuid="dcbdac8a-61b2-4793-82b2-0058475ef852">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/app.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\bbarthelet\PycharmProjects\pcbuild\app.db</jdbc-url>
       <libraries>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
