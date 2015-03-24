@@ -1,7 +1,22 @@
 from scrapy.item import Item, Field
 
 
-class cpuIntelScrapy(Item):
+class asusMBitem(Item):
+    name = Field()
+    brand = Field
+    form = Field()
+    chipset = Field()
+    sata3 = Field()
+    sata6 = Field()
+    dimm = Field()
+    memory_max_ = Field()
+    memory_max_u = Field()
+    memory_type = Field()
+
+
+
+
+class intelCPUitem(Item):
     cpubrand_id = Field()
     processor = Field()
     processor_name = Field()

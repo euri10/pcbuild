@@ -1,15 +1,13 @@
 import urlparse
-
-__author__ = 'euri10'
-
+from scrapy_db_builder.scrapy_db_builder.items import intelCPUitem
 from scrapy.contrib.spiders import Rule, CrawlSpider
 from scrapy.contrib.linkextractors.lxmlhtml import LxmlLinkExtractor
-from scrapy_db_builder.items import cpuIntelScrapy
+
 from scrapy import Request
 
 
-class CPUSpider(CrawlSpider):
-    name = 'cpuspider'
+class intelCPUSpider(CrawlSpider):
+    name = 'intelCPUSpider'
     allowed_domains = ['ark.intel.com']
     start_urls = ['http://ark.intel.com/#@Processors']
 
@@ -26,7 +24,7 @@ class CPUSpider(CrawlSpider):
 
 
     def parse_cpu_page(self, response):
-        item = cpuIntelScrapy()
+        item = intelCPUitem()
         item['processor'] = response.xpath('.//*[@id="ProcessorNumber"]/td[2]/text()').extract()
         item['cache'] = response.xpath('.//*[@id="Cache"]/td[2]/text()').extract()
         item['lithography'] = response.xpath('.//*[@id="Lithography"]/td[2]/text()').extract()

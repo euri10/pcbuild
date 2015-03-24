@@ -80,6 +80,32 @@ class MB(db.Model):
     __tablename__ = 'MB'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True)
+    brand = Column(String)
+    form = Column(String)
+    chipset = Column(String)
+    sata3 = Column(Integer)
+    sata6 = Column(Integer)
+    esata = Column(Integer)
+    dimm = Column(Integer)
+    memory_max_ = Column(Integer)
+    memory_max_u = Column(String)
+    memory_type = Column(String)
+    pcie3 = Column(Integer)
+    pcie2 = Column(Integer)
+    pcie1 = Column(Integer)
+    sli = Column(Integer)
+    crossfire = Column(Integer)
+    usb3 = Column(Integer)
+    usb2 = Column(Integer)
+    width = Column(Float)
+    width_u = Column(String)
+    heigth = Column(Float)
+    heigth_u = Column(String)
+    width_imperial = Column(Float)
+    width_u_imperial = Column(String)
+    heigth_imperial = Column(Float)
+    heigth_u_imperial = Column(String)
+
 
 
 class RAM(db.Model):
